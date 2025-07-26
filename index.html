@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陆渔科技 AI 陪跑服务 | 面向RAS的智慧养殖全周期护航专家</title>
+<!-- 引入在线图标库 Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary-color: #0c4a6e; /* 更深邃、稳重的科技蓝 */
+        --secondary-color: #0369a1; /* 活力蓝，与主色搭配 */
+        --accent-color: #16a34a; /* 更鲜明、自信的生态绿 */
+        --highlight-bg: #f0f9ff; /* 淡蓝色高亮背景 */
+        --text-color: #1f2937; /* 主文本-近黑 */
+        --light-text-color: #4b5563; /* 次要文本-中灰 */
+        --bg-color: #f8fafc; /* 页面背景-极淡灰 */
+        --white-color: #ffffff;
+        --border-color: #e5e7eb;
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow-medium: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Source Han Sans CN", "思源黑体", "Microsoft YaHei", sans-serif;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.75; 
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 960px;
+        margin: 40px auto;
+        background-color: var(--white-color);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        box-shadow: var(--shadow-medium);
+        overflow: hidden; /* 修正：确保容器能包裹 все内容 */
+    }
+    
+    .content-wrapper {
+        padding: 40px 50px;
+    }
+
+    /* --- 头部 --- */
+    .header {
+        text-align: center;
+        padding: 40px 20px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .header h1 {
+        font-size: 2.8em;
+        color: var(--primary-color);
+        margin: 0 0 10px 0;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+    .header .subtitle {
+        font-size: 1.4em;
+        color: var(--light-text-color);
+        font-weight: 400;
+    }
+    .subtitle .ras-highlight {
+        color: var(--secondary-color);
+        font-weight: 600;
+    }
+
+    /* --- 服务概述 (价值主张) --- */
+    .overview {
+        background-color: var(--highlight-bg);
+        border: 1px solid #bae6fd;
+        border-left: 6px solid var(--secondary-color);
+        padding: 30px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+    }
+    .overview p { 
+        margin: 0; 
+        font-size: 1.1em;
+        line-height: 1.8;
+    }
+    .overview .highlight {
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    .overview-roles {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px dashed var(--border-color);
+    }
+    .overview-roles .role {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .overview-roles .role i {
+        font-size: 2.5em;
+        color: var(--secondary-color);
+        margin-bottom: 12px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .overview-roles .role span {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    /* --- 章节标题 --- */
+    .section-title {
+        text-align: center;
+        margin: 50px 0 40px 0;
+    }
+    .section-title h2 {
+        font-size: 2.2em;
+        color: var(--primary-color);
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--accent-color);
+        border-radius: 2px;
+    }
+
+    /* --- 核心服务模块布局 --- */
+    .module-card {
+        margin-bottom: 50px;
+    }
+    .module-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr; /* 左侧文字稍宽 */
+        gap: 40px;
+        align-items: center; /* 垂直居中对齐 */
+    }
+    .module-text-content h3 {
+        font-size: 1.8em;
+        color: var(--secondary-color);
+        margin-top: 0;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+    }
+    .module-text-content h3 i {
+        margin-right: 15px;
+        font-size: 1.3em;
+    }
+    .module-text-content .positioning {
+        font-size: 1.1em;
+        font-weight: 500;
+        color: var(--light-text-color);
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .module-text-content h4 {
+        font-size: 1.15em;
+        color: var(--primary-color);
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    .module-text-content ul {
+        padding-left: 0;
+        list-style-type: none;
+    }
+    .module-text-content ul li {
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 28px;
+        font-size: 1em;
+        line-height: 1.6;
+    }
+    .module-text-content ul li::before {
+        content: '\f058';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        top: 4px;
+        font-size: 1.1em;
+    }
+
+    /* --- 新增：专业三图交错层叠布局 (重大升级) --- */
+    .module-visuals {
+        position: relative;
+        min-height: 450px; /* 给予足够的高度以容纳交错的图片 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .screenshot-img {
+        position: absolute;
+        width: 50%; /* 控制图片宽度 */
+        height: auto;
+        border-radius: 18px; /* 手机截图圆角 */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border: 5px solid var(--white-color);
+        background-color: var(--white-color);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .screenshot-img.img-1 {
+        transform: translate(-30%, 0) rotate(-12deg);
+        z-index: 1;
+    }
+    .screenshot-img.img-2 {
+        transform: translateY(-2%);
+        z-index: 3;
+    }
+    .screenshot-img.img-3 {
+        transform: translate(30%, 0) rotate(12deg);
+        z-index: 2;
+    }
+    .module-visuals:hover .screenshot-img.img-1 {
+        transform: translate(-38%, -2%) rotate(-15deg);
+    }
+    .module-visuals:hover .screenshot-img.img-2 {
+        transform: translateY(-5%) scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .module-visuals:hover .screenshot-img.img-3 {
+        transform: translate(38%, -2%) rotate(15deg);
+    }
+
+    .value-box {
+        margin-top: 30px;
+        background: linear-gradient(135deg, #e0f2f1, #e8f5e9);
+        padding: 20px 25px;
+        border-radius: 12px;
+        border: 1px solid var(--accent-color);
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(22, 163, 74, 0.1);
+    }
+    .value-box h4 {
+        color: var(--accent-color);
+        margin: 0 0 10px 0;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+    .value-box p {
+        margin: 0;
+        font-size: 1.1em;
+        font-weight: 600;
+        color: #064e3b;
+    }
+
+    /* --- 全生命周期保障 --- */
+    .lifecycle-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 50px 1fr 50px 1fr;
+        align-items: center;
+        gap: 15px;
+    }
+    .stage {
+        flex: 1;
+        padding: 25px;
+        text-align: center;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        background: var(--white-color);
+        box-shadow: var(--shadow-light);
+        border-top: 6px solid;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stage:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+    }
+    .stage.stage-1 { border-color: var(--secondary-color); }
+    .stage.stage-2 { border-color: var(--accent-color); }
+    .stage.stage-3 { border-color: var(--primary-color); }
+    .stage i { font-size: 3em; margin-bottom: 20px; }
+    .stage.stage-1 i { color: var(--secondary-color); }
+    .stage.stage-2 i { color: var(--accent-color); }
+    .stage.stage-3 i { color: var(--primary-color); }
+    .stage h3 { font-size: 1.4em; margin: 0 0 8px 0; color: var(--text-color); font-weight: 700; }
+    .stage span { font-size: 1em; font-weight: 600; color: var(--primary-color); display: block; margin-bottom: 15px;}
+    .stage p { color: var(--light-text-color); font-size: 0.95em; line-height: 1.6; margin: 0; }
+    .stage-connector {
+        font-size: 2.5em;
+        color: var(--border-color);
+        text-align: center;
+    }
+
+    /* --- 选择我们的理由 --- */
+    .reasons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    .reason {
+        background: var(--highlight-bg);
+        padding: 30px;
+        border-radius: 12px;
+        text-align: left;
+    }
+    .reason i {
+        font-size: 2.5em;
+        color: var(--accent-color);
+        margin-bottom: 15px;
+        background-color: var(--white-color);
+        padding: 15px;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: var(--shadow-light);
+        width: 40px; height: 40px; line-height: 40px; text-align:center;
+    }
+    .reason h3 {
+        color: var(--primary-color);
+        margin: 0 0 8px 0;
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+    .reason p { color: var(--light-text-color); font-size: 0.95em; line-height: 1.6; margin: 0; }
+
+    /* --- CTA --- */
+    .cta {
+        margin-top: 60px;
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        color: var(--white-color);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 35px 50px;
+    }
+    .cta-content { flex-grow: 1; }
+    .cta h2 { font-size: 2em; font-weight: 700; color: var(--white-color); margin: 0 0 10px 0; }
+    .cta p { margin: 0; opacity: 0.9; font-size: 1.1em; }
+    .cta-qr { text-align: center; }
+    .cta .qr-code { width: 150px; height: 150px; padding: 10px; background: var(--white-color); border-radius: 12px; display: block; }
+    .cta .qr-caption { margin-top: 10px; font-size: 1em; font-weight: 500; color: var(--white-color); }
+    
+    /* --- 响应式 & 打印 --- */
+    @media (max-width: 900px) {
+        .content-wrapper { padding: 25px; }
+        .module-grid { grid-template-columns: 1fr; gap: 10px; }
+        .module-visuals { min-height: 400px; margin-top: 20px;}
+        .screenshot-img { width: 45%; border-width: 4px; border-radius: 12px;}
+        .lifecycle-wrapper { grid-template-columns: 1fr; }
+        .stage-connector { display: none; }
+        .reasons { grid-template-columns: 1fr; }
+        .cta { flex-direction: column; text-align: center; padding: 30px; }
+    }
+    
+    @media print {
+        body { background-color: var(--white-color); font-size: 10pt; }
+        .container { width: 100%; max-width: 100%; margin: 0; padding: 0; border: none; box-shadow: none; }
+        .content-wrapper { padding: 20px; }
+        .header h1 { font-size: 22pt; } .header .subtitle { font-size: 12pt; }
+        .section-title { margin: 25px 0 20px 0; } .section-title h2 { font-size: 16pt; }
+        .module-card, .lifecycle-wrapper, .reasons, .cta, .overview { page-break-inside: avoid; }
+        .module-grid { grid-template-columns: 1.1fr 0.9fr; }
+        .module-visuals{ display: none; } /* 打印时隐藏动态图片，节约空间 */
+        .value-box { background-color: #f0f0f0; border: 1px solid #ccc; }
+        .cta { background: #f5f5f5 !important; color: var(--text-color) !important; padding: 20px;}
+        .cta h2, .cta p, .cta .qr-caption { color: var(--text-color) !important; }
+        img { max-width: 100% !important; }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header class="header">
+        <h1>陆渔科技 AI 陪跑服务</h1>
+        <p class="subtitle">专为 <span class="ras-highlight">RAS 循环水养殖</span> 设计的全周期护航专家</p>
+    </header>
+
+<div class="content-wrapper">
+
+    <div class="overview">
+        <p>陆渔科技 AI 陪跑服务，以 <span class="highlight">“数据驱动精准控制 + 智能优化标准流程”</span> 为核心，为 <span class="highlight">RAS 渔场</span> 提供覆盖规划、运营至优化的全生命周期“顾问式”服务。我们通过 <span class="highlight">订阅制专属顾问 + SaaS 系统 + 生命周期保障</span>，成为您可信赖的数字合伙人，助力渔场实现卓越的生产效益与管理水平。</p>
+        <div class="overview-roles">
+            <div class="role"><i class="fa-solid fa-user-tie"></i><span>您的AI养鱼顾问</span></div>
+            <div class="role"><i class="fa-solid fa-cogs"></i><span>您的SOP流程助手</span></div>
+            <div class="role"><i class="fa-solid fa-brain"></i><span>您的ROI预测引擎</span></div>
+        </div>
+    </div>
+
+    <section id="services">
+        <div class="section-title">
+            <h2>两大核心系统，构筑RAS智慧运营基石</h2>
+        </div>
+
+        <div class="module-card">
+            <div class="module-grid">
+                <div class="module-text-content">
+                    <h3><i class="fa-solid fa-chart-line"></i>渔全览</h3>
+                    <p class="positioning">您的RAS养殖全景数据决策中心</p>
+                    <h4>核心能力:</h4>
+                    <ul>
+                        <li><strong>全维数据采集：</strong>17+类RAS关键数据（水质/生物/能耗），支持表单/语音/图文多方式录入，构建完整养殖档案。</li>
+                        <li><strong>AI优化建议：</strong>基于RAS养殖模型，对数据进行实时分析，提供精准投喂、水处理、密度管理等优化策略。</li>
+                        <li><strong>智能全景报告：</strong>每日生成多维度报告（水质健康、生长态势、FCR、产量、风险），让经营状况一目了然。</li>
+                        <li><strong>任务闭环管理：</strong>基于SOP和生产目标，AI自动规划、发布、监督和评价任务，确保团队执行精准到位。</li>
+                    </ul>
+                </div>
+                <div class="module-visuals">
+                    <!-- ****** 渔全览三张截图 ****** -->
+                    <img src="images/yvquanlan_screen_1.png" alt="渔全览-数据上报" class="screenshot-img img-1">
+                    <img src="images/yvquanlan_screen_2.png" alt="渔全览-AI建议" class="screenshot-img img-2">
+                    <img src="images/yvquanlan_screen_3.png" alt="渔全览-全景报告" class="screenshot-img img-3">
+                </div>
+            </div>
+            <div class="value-box">
+                <h4><i class="fa-solid fa-arrow-trend-up"></i> 核心价值成果</h4>
+                <p>养殖成活率提升 5-10% | FCR降低 0.1-0.2 | 新手成长周期缩短 50%</p>
+            </div>
+        </div>
+
+        <div class="module-card">
+             <div class="module-grid">
+                <div class="module-text-content">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i>渔维</h3>
+                    <p class="positioning">您的RAS设备资产与运维管理中心</p>
+                    <h4>核心能力:</h4>
+                    <ul>
+                        <li><strong>设备资产管理：</strong>建立完整的设备档案（水泵/微滤机等），包含规格、维保记录，实现全生命周期追踪。</li>
+                        <li><strong>智能预警通知：</strong>联动IoT数据，实时监控设备状态，通过微信群主动预警并@负责人，防患于未然。</li>
+                        <li><strong>高效工单流转：</strong>支持多端快捷提单，实现“提单-派单-处理-验证”全流程追踪，责任到人，数据统一。</li>
+                        <li><strong>AI辅助运维：</strong>AI识别提单内容，结合历史数据提供故障定位与维修指引，并生成设备健康度报告。</li>
+                    </ul>
+                </div>
+                <div class="module-visuals">
+                     <!-- ****** 渔维三张截图 ****** -->
+                     <img src="images/yuwei_screen_1.png" alt="渔维-设备预警" class="screenshot-img img-1">
+                     <img src="images/yuwei_screen_2.png" alt="渔维-快捷提单" class="screenshot-img img-2">
+                     <img src="images/yuwei_screen_3.png" alt="渔维-工单追踪" class="screenshot-img img-3">
+                </div>
+            </div>
+            <div class="value-box">
+                <h4><i class="fa-solid fa-rocket"></i> 核心价值成果</h4>
+                <p>设备运维效率提升 40% | 故障响应时间缩短 60% | 降低因设备停机导致的重大损失</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="lifecycle">
+        <div class="section-title">
+            <h2>服务全生命周期保障</h2>
+        </div>
+        <div class="lifecycle-wrapper">
+            <div class="stage stage-1">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>启动期</h3><span>(1-2月)</span>
+                <p>业务目标共创、系统部署支持、全员深度培训，为您打下坚实的数据基础。</p>
+            </div>
+            <div class="stage-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+            <div class="stage stage-2">
+                <i class="fa-solid fa-seedling"></i>
+                <h3>成长期</h3><span>(3-6月)</span>
+                <p>AI模型生成诊断报告、专属顾问双周复盘、个性化模型持续迭代，助您快速提升。</p>
+            </div>
+            <div class="stage-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+            <div class="stage stage-3">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h3>稳定期</h3><span>(6月后)</span>
+                <p>季度经营画像复盘、异常问题专项研判、增值模块按需推荐，实现长期价值共赢。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us">
+        <div class="section-title">
+            <h2>选择我们的理由</h2>
+        </div>
+        <div class="reasons">
+            <div class="reason">
+                <i class="fa-solid fa-database"></i>
+                <h3>数据驱动</h3>
+                <p>覆盖5大专业领域、沉淀20万+结构化数据节点，构建行业领先的全要素养殖数据资产。</p>
+            </div>
+            <div class="reason">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>技术领先</h3>
+                <p>基于Multiple AI Agents矩阵，实现养殖场景深度穿透，让新手也能达成90%专家级运营水平。</p>
+            </div>
+            <div class="reason">
+                <i class="fa-solid fa-sack-dollar"></i>
+                <h3>效果可量化</h3>
+                <p>存活率、FCR、设备运维效率等核心指标提升数据可追溯，助力您“少走弯路、更快盈利”。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <h2>开启您RAS渔场的智慧升级之旅</h2>
+            <p>与我们的AI养殖专家一对一交流，获取为您量身定制的智慧升级方案。</p>
+        </div>
+        <div class="cta-qr">
+            <img src="images/contact_qr_code.png" alt="联系专属顾问二维码" class="qr-code">
+            <div class="qr-caption">扫码添加专属顾问</div>
+        </div>
+    </section>
+
+</div>
+
+</div>
+
+</body>
+</html>
